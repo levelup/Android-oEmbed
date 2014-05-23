@@ -6,4 +6,6 @@ public interface OEmbedSource {
 
 	String getThumbnail() throws HttpException;
 	
+	OEmbedRequest getOembedRequest();
+	
 }

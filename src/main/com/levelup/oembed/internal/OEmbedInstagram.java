@@ -8,28 +8,27 @@ import com.levelup.http.HttpParamsGet;
 import com.levelup.oembed.OEmbedRequest;
 import com.levelup.oembed.OEmbedSource;
 
-public class OEmbedVimeo implements OEmbedParser {
+public class OEmbedInstagram implements OEmbedParser {
+	
+	public static final OEmbedInstagram instance = new OEmbedInstagram();
 
-	public static final OEmbedVimeo instance = new OEmbedVimeo();
-	
-	private OEmbedVimeo() {
+	private OEmbedInstagram() {
 	}
-	
-	private final Pattern URLS = Pattern.compile("http://vimeo.com/*");
+
+	private final Pattern URLS = Pattern.compile("http://(instagram.com|instagr.am)/p/*");
 
 	@Override
 	public OEmbedSource getSource(Uri fromUri) {
 		if (URLS.matcher(fromUri.toString()).find()) {
-			return new OEmbedSourceVimeo(fromUri);
+			return new OEmbedSourceInstagram(fromUri);
 		}
 		return null;
 	}
 
-	private static class OEmbedSourceVimeo extends BaseOEmbedSource {
-
+	private static class OEmbedSourceInstagram extends BaseOEmbedSource {
 		private final Uri fromUri;
 		
-		public OEmbedSourceVimeo(Uri fromUri) {
+		public OEmbedSourceInstagram(Uri fromUri) {
 			this.fromUri = fromUri;
 		}
 
@@ -37,7 +36,8 @@ public class OEmbedVimeo implements OEmbedParser {
 		public OEmbedRequest getOembedRequest() {
 			HttpParamsGet params = new HttpParamsGet(1);
 			params.add("url", fromUri.toString());
-			return new OEmbedRequestGet("http://vimeo.com/api/oembed.json", params);
+			return new OEmbedRequestGet("http://api.instagram.com/oembed", params);
 		}
+		
 	}
 }

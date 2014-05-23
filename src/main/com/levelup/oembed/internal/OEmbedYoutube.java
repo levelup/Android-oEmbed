@@ -4,14 +4,8 @@ import java.util.List;
 
 import android.net.Uri;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.levelup.http.HttpClient;
-import com.levelup.http.HttpException;
 import com.levelup.http.HttpParamsGet;
-import com.levelup.http.HttpRequestGet;
-import com.levelup.http.gson.InputStreamGsonParser;
-import com.levelup.oembed.OEmbed;
+import com.levelup.oembed.OEmbedRequest;
 import com.levelup.oembed.OEmbedSource;
 
 public class OEmbedYoutube implements OEmbedParser {
@@ -37,31 +31,17 @@ public class OEmbedYoutube implements OEmbedParser {
 	private static class OEmbedSourceYoutube extends BaseOEmbedSource {
 		
 		private final Uri fromUri;
-		private OEmbed oembedData;
 		
 		OEmbedSourceYoutube(Uri fromUri) {
 			this.fromUri = fromUri;
 		}
 
 		@Override
-		protected void assertDataLoaded() throws HttpException {
+		public OEmbedRequest getOembedRequest() {
 			HttpParamsGet params = new HttpParamsGet(2);
 			params.add("url", fromUri.toString());
 			params.add("format", "json");
-			HttpRequestGet request = new HttpRequestGet("http://www.youtube.com/oembed", params);
-			
-			Gson gson = new GsonBuilder().create();
-			InputStreamGsonParser<OEmbed> parser = new InputStreamGsonParser<OEmbed>(gson, OEmbed.class);
-			
-			oembedData = HttpClient.parseRequest(request, parser);
-		}
-
-		@Override
-		public String getThumbnail() throws HttpException {
-			assertDataLoaded();
-			if (null!=oembedData)
-				return oembedData.getThumbnail();
-			return null;
+			return new OEmbedRequestGet("http://www.youtube.com/oembed", params);
 		}
 	}
 }

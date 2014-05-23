@@ -12,6 +12,9 @@ public class OEmbed {
 	@SerializedName("thumbnail_url") String thumbnailUrl;
 	@SerializedName("thumbnail_width") int thumbnailWidth;
 	@SerializedName("thumbnail_height") int thumbnailHeight;
+	@SerializedName("url") String photoUrl;
+	@SerializedName("width") int photoWidth;
+	@SerializedName("height") int photoHeight;
 	
 	/**
 	 * Tell if the OEmbed object is a photo or a video
@@ -30,5 +33,17 @@ public class OEmbed {
 	
 	public int getThumbnailWidth() {
 		return thumbnailWidth;
+	}
+
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public int getPhotoWidth() {
+		return photoWidth;
+	}
+
+	public int getPhotoHeight() {
+		return photoHeight;
 	}
 }
