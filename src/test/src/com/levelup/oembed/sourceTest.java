@@ -7,6 +7,7 @@ public class sourceTest extends TestCase {
 	private static final String YOUTUBE1 = "http://www.youtube.com/watch?v=SqfJPKgkdgg";
 	private static final String YOUTUBE2 = "http://www.youtube.com/embed/SqfJPKgkdgg?rel=0&amp;autoplay=0&amp;wmode=opaque&amp;controls=2&amp;autohide=1&amp;showinfo=0";
 	private static final String VIMEO1 = "http://vimeo.com/7100569";
+	private static final String INSTAGRAM1 = "http://instagram.com/p/oTYiNETBRO/";
 	
 	public void testYoutube1() throws Exception {
 		OEmbedSource dataSource = OEmbedFinder.parse(YOUTUBE1);
@@ -29,4 +30,11 @@ public class sourceTest extends TestCase {
 		assertNotNull(thumbnail);
 	}
 	
+	
+	public void testInstagram1() throws Exception {
+		OEmbedSource dataSource = OEmbedFinder.parse(INSTAGRAM1);
+		assertNotNull(dataSource);
+		String thumbnail = dataSource.getThumbnail();
+		assertNotNull(thumbnail);
+	}
 }
