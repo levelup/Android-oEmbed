@@ -2,6 +2,8 @@ package com.levelup.oembed;
 
 import android.net.Uri;
 
+import com.levelup.oembed.internal.OEmbedFunnyOrDie;
+import com.levelup.oembed.internal.OEmbedHulu;
 import com.levelup.oembed.internal.OEmbedInstagram;
 import com.levelup.oembed.internal.OEmbedParser;
 import com.levelup.oembed.internal.OEmbedViddler;
@@ -12,8 +14,10 @@ public final class OEmbedFinder {
 
 	private static final OEmbedParser parsers[] = new OEmbedParser[] {
 		OEmbedYoutube.instance,
-		OEmbedVimeo.instance,
 		OEmbedInstagram.instance,
+		OEmbedFunnyOrDie.instance,
+		OEmbedVimeo.instance,
+		OEmbedHulu.instance,
 		OEmbedViddler.instance,
 	};
 	
