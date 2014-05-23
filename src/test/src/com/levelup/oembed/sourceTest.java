@@ -1,8 +1,5 @@
 package com.levelup.oembed;
 
-import com.levelup.oembed.OEmbedFinder;
-import com.levelup.oembed.OEmbedSource;
-
 import junit.framework.TestCase;
 
 public class sourceTest extends TestCase {
