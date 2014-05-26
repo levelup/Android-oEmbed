@@ -13,47 +13,62 @@ public class sourceTest extends TestCase {
 	private static final String HULU1 = "http://www.hulu.com/watch/20807/late-night-with-conan-obrien-wed-may-21-2008";
 	private static final String IMGUR1 = "http://imgur.com/gallery/VWtX56r";
 	private static final String IMGUR2 = "http://i.imgur.com/emxcraW.jpg";
-	
-	private static void testOEmbedURL(String url) throws Exception {
+	private static final String IMGUR3 = "http://imgur.com/PDnO8rG";
+	private static final String FAIL_IMGUR1 = "http://imgur.com/a/N5vY5";
+
+	private static void testOEmbedThumbnail(String url) throws Exception {
 		OEmbedSource dataSource = OEmbedFinder.parse(url);
 		assertNotNull(dataSource);
 		String thumbnail = dataSource.getThumbnail();
 		assertNotNull(thumbnail);
 	}
 	
+	private static void testOEmbedNoThumbnail(String url) throws Exception {
+		OEmbedSource dataSource = OEmbedFinder.parse(url);
+		assertNull(dataSource);
+	}
+	
 	public void testYoutube1() throws Exception {
-		testOEmbedURL(YOUTUBE1);
+		testOEmbedThumbnail(YOUTUBE1);
 	}
 	
 	public void testYoutube2() throws Exception {
-		testOEmbedURL(YOUTUBE2);
+		testOEmbedThumbnail(YOUTUBE2);
 	}
 	
 	public void testVimeo1() throws Exception {
-		testOEmbedURL(VIMEO1);
+		testOEmbedThumbnail(VIMEO1);
 	}
 	
 	public void testInstagram1() throws Exception {
-		testOEmbedURL(INSTAGRAM1);
+		testOEmbedThumbnail(INSTAGRAM1);
 	}
 	
 	public void testViddler1() throws Exception {
-		testOEmbedURL(VIDDLER1);
+		testOEmbedThumbnail(VIDDLER1);
 	}
 	
 	public void testFunnyOrDie1() throws Exception {
-		testOEmbedURL(FUNNYORDIE1);
+		testOEmbedThumbnail(FUNNYORDIE1);
 	}
 	
 	public void testHulu1() throws Exception {
-		testOEmbedURL(HULU1);
+		testOEmbedThumbnail(HULU1);
 	}
 	
 	public void testImgur1() throws Exception {
-		testOEmbedURL(IMGUR1);
+		testOEmbedThumbnail(IMGUR1);
 	}
 	
 	public void testImgur2() throws Exception {
-		testOEmbedURL(IMGUR2);
+		testOEmbedThumbnail(IMGUR2);
+	}
+	
+	public void testImgur3() throws Exception {
+		testOEmbedThumbnail(IMGUR3);
+	}
+	
+	public void testOEmbedNoThumbnail() throws Exception {
+		testOEmbedThumbnail(FAIL_IMGUR1);
 	}
 }

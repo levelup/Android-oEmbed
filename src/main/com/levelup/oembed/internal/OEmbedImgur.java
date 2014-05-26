@@ -17,7 +17,7 @@ public class OEmbedImgur implements OEmbedParser {
 			return new OEmbedSourceImgur(fromUri);
 		}
 		if ("imgur.com".equalsIgnoreCase(fromUri.getHost())) {
-			if (fromUri.getPath().startsWith("/gallery/")) {
+			if (!fromUri.getPath().startsWith("/a/")) { // albums are not supported (rich typed, rather than photo/video)
 				return new OEmbedSourceImgur(fromUri);
 			}
 		}
