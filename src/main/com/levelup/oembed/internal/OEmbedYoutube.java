@@ -4,8 +4,6 @@ import java.util.List;
 
 import android.net.Uri;
 
-import com.levelup.http.HttpParamsGet;
-import com.levelup.oembed.OEmbedRequest;
 import com.levelup.oembed.OEmbedSource;
 
 public class OEmbedYoutube implements OEmbedParser {
@@ -29,19 +27,8 @@ public class OEmbedYoutube implements OEmbedParser {
 	}
 
 	private static class OEmbedSourceYoutube extends BaseOEmbedSource {
-		
-		private final Uri fromUri;
-		
 		OEmbedSourceYoutube(Uri fromUri) {
-			this.fromUri = fromUri;
-		}
-
-		@Override
-		public OEmbedRequest getOembedRequest() {
-			HttpParamsGet params = new HttpParamsGet(2);
-			params.add("url", fromUri.toString());
-			params.add("format", "json");
-			return new OEmbedRequestGet("http://www.youtube.com/oembed", params);
+			super("http://www.youtube.com/oembed", fromUri);
 		}
 	}
 }

@@ -4,9 +4,6 @@ import java.util.regex.Pattern;
 
 import android.net.Uri;
 
-import com.levelup.http.HttpParamsGet;
-import com.levelup.oembed.OEmbedRequest;
-
 public abstract class OEmbedParserWithPattern implements OEmbedParser {
 
 	private final Pattern pattern;
@@ -28,18 +25,8 @@ public abstract class OEmbedParserWithPattern implements OEmbedParser {
 	}
 
 	private class OEmbedSource extends BaseOEmbedSource {
-		private final Uri fromUri;
-
 		public OEmbedSource(Uri fromUri) {
-			this.fromUri = fromUri;
-		}
-
-		@Override
-		public OEmbedRequest getOembedRequest() {
-			HttpParamsGet params = new HttpParamsGet(2);
-			params.add("url", fromUri.toString());
-			params.add("format", "json");
-			return new OEmbedRequestGet(endpoint, params);
+			super(OEmbedParserWithPattern.this.endpoint, fromUri);
 		}
 	}
 }
