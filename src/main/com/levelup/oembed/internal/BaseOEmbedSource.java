@@ -23,7 +23,7 @@ abstract class BaseOEmbedSource implements OEmbedSource {
 	
 	final void assertDataLoaded() throws HttpException {
 		OEmbedRequest request = getOembedRequest();
-		oembedData = HttpClient.parseRequest(request, request.getInputStreamParser());
+		oembedData = HttpClient.parseRequest(request);
 	}
 	
 	@Override

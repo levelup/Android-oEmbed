@@ -1,10 +1,7 @@
 package com.levelup.oembed;
 
-import com.levelup.http.HttpRequest;
-import com.levelup.http.InputStreamParser;
+import com.levelup.http.TypedHttpRequest;
 
-public interface OEmbedRequest extends HttpRequest {
 
-	InputStreamParser<OEmbed> getInputStreamParser();
-	
+public interface OEmbedRequest extends TypedHttpRequest<OEmbed> {
 }
