@@ -68,7 +68,7 @@ public class sourceTest extends TestCase {
 		testOEmbedThumbnail(IMGUR3);
 	}
 	
-	public void testOEmbedNoThumbnail() throws Exception {
-		testOEmbedThumbnail(FAIL_IMGUR1);
+	public void testImgurFail1() throws Exception {
+		testOEmbedNoThumbnail(FAIL_IMGUR1);
 	}
 }
