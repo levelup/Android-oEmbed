@@ -17,12 +17,12 @@ public class OEmbedRequestGet extends HttpRequestGet<OEmbed> implements OEmbedRe
 		super(url, getParser());
 	}
 
-	public OEmbedRequestGet(String baseUrl, HttpUriParameters httpParams) {
-		super(baseUrl, httpParams, getParser());
+	public OEmbedRequestGet(String baseUrl, HttpUriParameters uriParams) {
+		super(baseUrl, uriParams, getParser());
 	}
 
-	public OEmbedRequestGet(Uri baseUri, HttpUriParameters httpParams) {
-		super(baseUri, httpParams, getParser());
+	public OEmbedRequestGet(Uri baseUri, HttpUriParameters uriParams) {
+		super(baseUri, uriParams, getParser());
 	}
 
 	private static InputStreamParser<OEmbed> getParser() {
