@@ -4,25 +4,25 @@ import android.net.Uri;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.levelup.http.BaseHttpRequest;
 import com.levelup.http.HttpUriParameters;
-import com.levelup.http.HttpRequestGet;
 import com.levelup.http.InputStreamParser;
 import com.levelup.http.gson.InputStreamGsonParser;
 import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
 
-public class OEmbedRequestGet extends HttpRequestGet<OEmbed> implements OEmbedRequest {
+public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedRequest {
 
 	public OEmbedRequestGet(String url) {
-		super(url, getParser());
+		super(new Builder<OEmbed>().setUrl(url).setStreamParser(getParser()));
 	}
 
 	public OEmbedRequestGet(String baseUrl, HttpUriParameters uriParams) {
-		super(baseUrl, uriParams, getParser());
+		super(new Builder<OEmbed>().setUrl(baseUrl, uriParams).setStreamParser(getParser()));
 	}
 
 	public OEmbedRequestGet(Uri baseUri, HttpUriParameters uriParams) {
-		super(baseUri, uriParams, getParser());
+		super(new Builder<OEmbed>().setUri(baseUri).setStreamParser(getParser()));
 	}
 
 	private static InputStreamParser<OEmbed> getParser() {
