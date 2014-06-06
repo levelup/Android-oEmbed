@@ -21,10 +21,6 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 		super(new Builder<OEmbed>().setUrl(baseUrl, uriParams).setStreamParser(getParser()));
 	}
 
-	public OEmbedRequestGet(Uri baseUri, HttpUriParameters uriParams) {
-		super(new Builder<OEmbed>().setUri(baseUri).setStreamParser(getParser()));
-	}
-
 	private static InputStreamParser<OEmbed> getParser() {
 		Gson gson = new GsonBuilder().create();
 		return new InputStreamGsonParser<OEmbed>(gson, OEmbed.class);
