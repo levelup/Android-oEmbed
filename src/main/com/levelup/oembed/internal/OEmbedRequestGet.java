@@ -1,7 +1,5 @@
 package com.levelup.oembed.internal;
 
-import android.net.Uri;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.levelup.http.BaseHttpRequest;
