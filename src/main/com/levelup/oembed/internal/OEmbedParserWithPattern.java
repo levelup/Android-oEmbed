@@ -9,7 +9,7 @@ public abstract class OEmbedParserWithPattern implements OEmbedParser {
 	private final Pattern pattern;
 	private final String endpoint;
 
-	public OEmbedParserWithPattern(String pattern, String endpoint) {
+	protected OEmbedParserWithPattern(String pattern, String endpoint) {
 		if (null==pattern) throw new NullPointerException();
 		if (null==endpoint) throw new NullPointerException();
 		this.pattern = Pattern.compile(pattern);

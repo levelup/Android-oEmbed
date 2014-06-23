@@ -12,7 +12,7 @@ import com.levelup.oembed.OEmbedSource;
 
 abstract class BaseOEmbedSource implements OEmbedSource {
 
-	protected OEmbed oembedData;
+	private OEmbed oembedData;
 	private final String endpoint;
 	private final String url;
 	
