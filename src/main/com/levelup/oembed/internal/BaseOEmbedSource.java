@@ -1,5 +1,6 @@
 package com.levelup.oembed.internal;
 
+import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -15,8 +16,10 @@ abstract class BaseOEmbedSource implements OEmbedSource {
 	private OEmbed oembedData;
 	private final String endpoint;
 	private final String url;
+	private final Context context;
 	
-	protected BaseOEmbedSource(String endpoint, Uri fromUri) {
+	protected BaseOEmbedSource(Context context, String endpoint, Uri fromUri) {
+		this.context = context;
 		this.endpoint = endpoint;
 		this.url = fromUri.toString();
 	}
@@ -31,7 +34,7 @@ abstract class BaseOEmbedSource implements OEmbedSource {
 		UriParams params = new UriParams(2);
 		params.add("url", url);
 		params.add("format", "json");
-		return new OEmbedRequestGet(endpoint, params);
+		return new OEmbedRequestGet(context, endpoint, params);
 	}
 	
 	@Override

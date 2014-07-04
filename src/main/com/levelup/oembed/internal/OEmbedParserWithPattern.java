@@ -2,6 +2,7 @@ package com.levelup.oembed.internal;
 
 import java.util.regex.Pattern;
 
+import android.content.Context;
 import android.net.Uri;
 
 public abstract class OEmbedParserWithPattern implements OEmbedParser {
@@ -17,16 +18,16 @@ public abstract class OEmbedParserWithPattern implements OEmbedParser {
 	}
 
 	@Override
-	public OEmbedSource getSource(Uri fromUri) {
+	public OEmbedSource getSource(Context context, Uri fromUri) {
 		if (pattern.matcher(fromUri.toString()).find()) {
-			return new OEmbedSource(fromUri);
+			return new OEmbedSource(context, fromUri);
 		}
 		return null;
 	}
 
 	private class OEmbedSource extends BaseOEmbedSource {
-		public OEmbedSource(Uri fromUri) {
-			super(OEmbedParserWithPattern.this.endpoint, fromUri);
+		public OEmbedSource(Context context, Uri fromUri) {
+			super(context, OEmbedParserWithPattern.this.endpoint, fromUri);
 		}
 	}
 }

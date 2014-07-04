@@ -1,8 +1,9 @@
 package com.levelup.oembed;
 
-import junit.framework.TestCase;
+import android.content.Context;
+import android.test.AndroidTestCase;
 
-public class sourceTest extends TestCase {
+public class sourceTest extends AndroidTestCase {
 
 	private static final String YOUTUBE1 = "http://www.youtube.com/watch?v=SqfJPKgkdgg";
 	private static final String YOUTUBE2 = "http://www.youtube.com/embed/SqfJPKgkdgg?rel=0&amp;autoplay=0&amp;wmode=opaque&amp;controls=2&amp;autohide=1&amp;showinfo=0";
@@ -16,15 +17,15 @@ public class sourceTest extends TestCase {
 	private static final String IMGUR3 = "http://imgur.com/PDnO8rG";
 	private static final String FAIL_IMGUR1 = "http://imgur.com/a/N5vY5";
 
-	private static void testOEmbedThumbnail(String url) throws Exception {
-		OEmbedSource dataSource = OEmbedFinder.parse(url);
+	private void testOEmbedThumbnail(String url) throws Exception {
+		OEmbedSource dataSource = OEmbedFinder.parse(getContext(), url);
 		assertNotNull(dataSource);
 		String thumbnail = dataSource.getThumbnail();
 		assertNotNull(thumbnail);
 	}
 	
-	private static void testOEmbedNoThumbnail(String url) throws Exception {
-		OEmbedSource dataSource = OEmbedFinder.parse(url);
+	private void testOEmbedNoThumbnail(String url) throws Exception {
+		OEmbedSource dataSource = OEmbedFinder.parse(getContext(), url);
 		assertNull(dataSource);
 	}
 	
