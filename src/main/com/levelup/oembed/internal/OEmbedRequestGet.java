@@ -5,7 +5,7 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.levelup.http.BaseHttpRequest;
-import com.levelup.http.HttpRequestImpl;
+import com.levelup.http.HttpEngine;
 import com.levelup.http.HttpUriParameters;
 import com.levelup.http.InputStreamParser;
 import com.levelup.http.gson.InputStreamGsonParser;
@@ -21,14 +21,14 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 	public OEmbedRequestGet(Context context, String baseUrl, HttpUriParameters uriParams) {
 		super(new AbstractBuilder<OEmbed, OEmbedRequestGet>(context) {
 			@Override
-			protected OEmbedRequestGet build(HttpRequestImpl<OEmbed> impl) {
+			protected OEmbedRequestGet build(HttpEngine<OEmbed> impl) {
 				return new OEmbedRequestGet(impl);
 			}
 		}.setUrl(baseUrl, uriParams).setStreamParser(getParser())
 				.buildImpl());
 	}
 
-	protected OEmbedRequestGet(HttpRequestImpl<OEmbed> impl) {
+	protected OEmbedRequestGet(HttpEngine<OEmbed> impl) {
 		super(impl);
 	}
 
