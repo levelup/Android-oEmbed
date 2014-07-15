@@ -1,6 +1,5 @@
 package com.levelup.oembed;
 
-import android.content.Context;
 import android.test.AndroidTestCase;
 
 public class sourceTest extends AndroidTestCase {
