@@ -24,7 +24,7 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 			protected OEmbedRequestGet build(HttpEngine<OEmbed> impl) {
 				return new OEmbedRequestGet(impl);
 			}
-		}.setUrl(baseUrl, uriParams).setDataParser(getParser())
+		}.setUrl(baseUrl, uriParams).setResponseParser(getParser())
 				.buildImpl());
 	}
 
