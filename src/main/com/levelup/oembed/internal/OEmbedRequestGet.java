@@ -5,14 +5,15 @@ import android.content.Context;
 import com.levelup.http.BaseHttpRequest;
 import com.levelup.http.HttpEngine;
 import com.levelup.http.HttpUriParameters;
-import com.levelup.http.gson.InputStreamGsonParser;
+import com.levelup.http.gson.ResponseToGson;
 import com.levelup.http.parser.ResponseParser;
 import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
 
 public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedRequest {
 
-	private static final InputStreamGsonParser<OEmbed> OEMBED_PARSER = new InputStreamGsonParser<OEmbed>(OEmbed.class);
+	private static final ResponseToGson<OEmbed> OEMBED_TRANSFORM = new ResponseToGson(OEmbed.class);
+	private static final ResponseParser<OEmbed, Object> OEMBED_PARSER = new ResponseParser<OEmbed, Object>(OEMBED_TRANSFORM);
 
 	public OEmbedRequestGet(Context context, String url) {
 		this(context, url, null);
@@ -24,15 +25,12 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 			protected OEmbedRequestGet build(HttpEngine<OEmbed> impl) {
 				return new OEmbedRequestGet(impl);
 			}
-		}.setUrl(baseUrl, uriParams).setResponseParser(getParser())
+		}.setUrl(baseUrl, uriParams)
+				.setResponseParser(OEMBED_PARSER)
 				.buildImpl());
 	}
 
 	protected OEmbedRequestGet(HttpEngine<OEmbed> impl) {
 		super(impl);
-	}
-
-	private static ResponseParser<OEmbed,?> getParser() {
-		return new ResponseParser<OEmbed, Object>(OEMBED_PARSER, null);
 	}
 }
