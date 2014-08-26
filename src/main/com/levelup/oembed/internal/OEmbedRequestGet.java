@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.levelup.http.BaseHttpRequest;
 import com.levelup.http.HttpEngine;
-import com.levelup.http.HttpResponseHandler;
+import com.levelup.http.ResponseHandler;
 import com.levelup.http.HttpUriParameters;
 import com.levelup.http.gson.ResponseViaGson;
 import com.levelup.oembed.OEmbed;
@@ -13,7 +13,7 @@ import com.levelup.oembed.OEmbedRequest;
 public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedRequest {
 
 	private static final ResponseViaGson<OEmbed> OEMBED_TRANSFORM = new ResponseViaGson(OEmbed.class);
-	private static final HttpResponseHandler<OEmbed> OEMBED_PARSER = new HttpResponseHandler<OEmbed>(OEMBED_TRANSFORM);
+	private static final ResponseHandler<OEmbed> OEMBED_RESPONSE_PARSER = new ResponseHandler<OEmbed>(OEMBED_TRANSFORM);
 
 	public OEmbedRequestGet(Context context, String url) {
 		this(context, url, null);
@@ -26,7 +26,7 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 				return new OEmbedRequestGet(impl);
 			}
 		}.setUrl(baseUrl, uriParams)
-				.setResponseParser(OEMBED_PARSER)
+				.setResponseParser(OEMBED_RESPONSE_PARSER)
 				.buildImpl());
 	}
 
