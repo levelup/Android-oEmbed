@@ -3,7 +3,6 @@ package com.levelup.oembed.internal;
 import android.content.Context;
 
 import com.levelup.http.BaseHttpRequest;
-import com.levelup.http.HttpEngine;
 import com.levelup.http.ResponseHandler;
 import com.levelup.http.HttpUriParameters;
 import com.levelup.http.gson.ResponseViaGson;
@@ -20,17 +19,18 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 	}
 
 	public OEmbedRequestGet(Context context, String baseUrl, HttpUriParameters uriParams) {
-		super(new AbstractBuilder<OEmbed, OEmbedRequestGet>(context) {
-			@Override
-			protected OEmbedRequestGet build(HttpEngine<OEmbed> impl) {
-				return new OEmbedRequestGet(impl);
-			}
-		}.setUrl(baseUrl, uriParams)
-				.setResponseParser(OEMBED_RESPONSE_PARSER)
-				.buildImpl());
+		super(new ChildBuilder<OEmbed, OEmbedRequestGet>(context) {
+					@Override
+					protected OEmbedRequestGet build(ChildBuilder<OEmbed, OEmbedRequestGet> builder) {
+						return new OEmbedRequestGet(builder);
+					}
+				}
+						.setUrl(baseUrl, uriParams)
+						.setResponseParser(OEMBED_RESPONSE_PARSER)
+		);
 	}
 
-	protected OEmbedRequestGet(HttpEngine<OEmbed> impl) {
-		super(impl);
+	protected OEmbedRequestGet(ChildBuilder<OEmbed, ? extends OEmbedRequestGet> builder) {
+		super(builder);
 	}
 }
