@@ -1,6 +1,5 @@
 package com.levelup.oembed;
 
-import android.content.Context;
 import android.net.Uri;
 
 import com.levelup.oembed.internal.OEmbedFunnyOrDie;
@@ -24,11 +23,11 @@ public final class OEmbedFinder {
 		OEmbedViddler.instance,
 	};
 	
-	public static OEmbedSource parse(Context context, String sourceUrl) {
+	public static OEmbedSource parse(String sourceUrl) {
 		Uri sourceUri = Uri.parse(sourceUrl);
 
 		for (OEmbedParser parser : parsers) {
-			OEmbedSource src = parser.getSource(context, sourceUri);
+			OEmbedSource src = parser.getSource(sourceUri);
 			if (null!=src)
 				return src;
 		}

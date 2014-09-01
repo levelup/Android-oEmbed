@@ -6,5 +6,5 @@ import android.net.Uri;
 import com.levelup.oembed.OEmbedSource;
 
 public interface OEmbedParser {
-	OEmbedSource getSource(Context context, Uri fromUri);
+	OEmbedSource getSource(Uri fromUri);
 }
