@@ -3,13 +3,13 @@ package com.levelup.oembed.internal;
 import com.levelup.http.BaseHttpRequest;
 import com.levelup.http.HttpUriParameters;
 import com.levelup.http.ResponseHandler;
-import com.levelup.http.gson.ResponseViaGson;
+import com.levelup.http.gson.BodyViaGson;
 import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
 
 public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedRequest {
 
-	private static final ResponseViaGson<OEmbed> OEMBED_TRANSFORM = new ResponseViaGson(OEmbed.class);
+	private static final BodyViaGson<OEmbed> OEMBED_TRANSFORM = new BodyViaGson(OEmbed.class);
 	private static final ResponseHandler<OEmbed> OEMBED_RESPONSE_PARSER = new ResponseHandler<OEmbed>(OEMBED_TRANSFORM);
 
 	public OEmbedRequestGet(String url) {
@@ -24,7 +24,7 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 					}
 				}
 						.setUrl(baseUrl, uriParams)
-						.setResponseParser(OEMBED_RESPONSE_PARSER)
+						.setResponseHandler(OEMBED_RESPONSE_PARSER)
 		);
 	}
 
