@@ -14,6 +14,7 @@ public class sourceTest extends AndroidTestCase {
 	private static final String IMGUR1 = "http://imgur.com/gallery/VWtX56r";
 	private static final String IMGUR2 = "http://i.imgur.com/emxcraW.jpg";
 	private static final String IMGUR3 = "http://imgur.com/PDnO8rG";
+	private static final String IMGUR4 = "http://imgur.com/gallery/STcRW6c";
 	private static final String FAIL_IMGUR1 = "http://imgur.com/a/N5vY5";
 
 	private void testOEmbedThumbnail(String url) throws Exception {
@@ -67,7 +68,11 @@ public class sourceTest extends AndroidTestCase {
 	public void testImgur3() throws Exception {
 		testOEmbedThumbnail(IMGUR3);
 	}
-	
+
+	public void testImgur4() throws Exception {
+		testOEmbedThumbnail(IMGUR4);
+	}
+
 	public void testImgurFail1() throws Exception {
 		testOEmbedNoThumbnail(FAIL_IMGUR1);
 	}
