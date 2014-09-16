@@ -13,7 +13,7 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		try {
 			source.getThumbnail();
 		} catch (HttpException e) {
-			if (e.getErrorCode()!=HttpException.ERROR_PARSER)
+			if (e.errorCode!=HttpException.ERROR_PARSER)
 				throw e;
 		}
 	}
@@ -23,7 +23,7 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		try {
 			source.getThumbnail();
 		} catch (HttpException e) {
-			if (e.getErrorCode()!=HttpException.ERROR_NETWORK)
+			if (e.errorCode!=HttpException.ERROR_NETWORK)
 				throw e;
 		}
 	}
@@ -33,7 +33,7 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		try {
 			source.getThumbnail();
 		} catch (HttpException e) {
-			if (e.getHttpStatusCode()!=HttpException.ERROR_HTTP_NOT_FOUND)
+			if (e.httpStatusCode!=HttpException.ERROR_HTTP_NOT_FOUND)
 				throw e;
 		}
 	}
