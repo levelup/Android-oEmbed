@@ -1,6 +1,7 @@
 package com.levelup.oembed.internal;
 
 import com.levelup.http.BaseHttpRequest;
+import com.levelup.http.HttpRequest;
 import com.levelup.http.HttpUriParameters;
 import com.levelup.http.ResponseHandler;
 import com.levelup.http.gson.BodyViaGson;
@@ -26,6 +27,7 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed> implements OEmbedR
 						.setUrl(baseUrl, uriParams)
 						.setResponseHandler(OEMBED_RESPONSE_PARSER)
 		);
+		setHeader(HttpRequest.HEADER_ACCEPT, "application/json");
 	}
 
 	protected OEmbedRequestGet(ChildBuilder<OEmbed, ? extends OEmbedRequestGet> builder) {

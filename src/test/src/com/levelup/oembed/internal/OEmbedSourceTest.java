@@ -8,8 +8,18 @@ import com.levelup.oembed.OEmbedSource;
 
 public class OEmbedSourceTest extends AndroidTestCase {
 
-	public void testBogusData() throws Exception {
+	public void testBogusMime() throws Exception {
 		OEmbedSource source = new BaseOEmbedSource("http://goo.gl/json", Uri.parse("http://mydomain.com/path")){};
+		try {
+			source.getThumbnail();
+		} catch (HttpException e) {
+			if (e.errorCode!=HttpException.ERROR_MIME)
+				throw e;
+		}
+	}
+
+	public void testBogusData() throws Exception {
+		OEmbedSource source = new BaseOEmbedSource("http://httpbin.org/ip", Uri.parse("http://mydomain.com/path")){};
 		try {
 			source.getThumbnail();
 		} catch (HttpException e) {
