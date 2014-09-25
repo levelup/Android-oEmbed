@@ -3,7 +3,10 @@ package com.levelup.oembed.internal;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
+import com.levelup.http.HttpDataParserException;
 import com.levelup.http.HttpException;
+import com.levelup.http.HttpIOException;
+import com.levelup.http.HttpMimeException;
 import com.levelup.oembed.OEmbedSource;
 
 public class OEmbedSourceTest extends AndroidTestCase {
@@ -12,9 +15,8 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		OEmbedSource source = new BaseOEmbedSource("http://goo.gl/json", Uri.parse("http://mydomain.com/path")){};
 		try {
 			source.getThumbnail();
-		} catch (HttpException e) {
-			if (e.errorCode!=HttpException.ERROR_MIME)
-				throw e;
+		} catch (HttpMimeException e) {
+			// ok
 		}
 	}
 
@@ -22,9 +24,8 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		OEmbedSource source = new BaseOEmbedSource("http://httpbin.org/ip", Uri.parse("http://mydomain.com/path")){};
 		try {
 			source.getThumbnail();
-		} catch (HttpException e) {
-			if (e.errorCode!=HttpException.ERROR_PARSER)
-				throw e;
+		} catch (HttpDataParserException e) {
+			// ok
 		}
 	}
 
@@ -32,9 +33,8 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		OEmbedSource source = new BaseOEmbedSource("http://goo.goo/json", Uri.parse("http://mydomain.com/path")){};
 		try {
 			source.getThumbnail();
-		} catch (HttpException e) {
-			if (e.errorCode!=HttpException.ERROR_NETWORK)
-				throw e;
+		} catch (HttpIOException e) {
+			// ok
 		}
 	}
 
