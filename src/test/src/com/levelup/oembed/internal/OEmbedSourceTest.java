@@ -43,7 +43,7 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		try {
 			source.getThumbnail();
 		} catch (HttpException e) {
-			if (e.httpStatusCode!=HttpException.ERROR_HTTP_NOT_FOUND)
+			if (e.httpStatusCode!=HttpException.HTTP_STATUS_NOT_FOUND)
 				throw e;
 		}
 	}
