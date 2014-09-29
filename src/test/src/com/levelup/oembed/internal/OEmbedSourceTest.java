@@ -7,6 +7,7 @@ import com.levelup.http.HttpDataParserException;
 import com.levelup.http.HttpException;
 import com.levelup.http.HttpIOException;
 import com.levelup.http.HttpMimeException;
+import com.levelup.http.ServerException;
 import com.levelup.oembed.OEmbedSource;
 
 public class OEmbedSourceTest extends AndroidTestCase {
@@ -42,8 +43,8 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		OEmbedSource source = new BaseOEmbedSource("http://www.google.com/totosdk", Uri.parse("http://mydomain.com/path")){};
 		try {
 			source.getThumbnail();
-		} catch (HttpException e) {
-			if (e.httpStatusCode!=HttpException.HTTP_STATUS_NOT_FOUND)
+		} catch (ServerException e) {
+			if (e.getStatusCode()!=HttpException.HTTP_STATUS_NOT_FOUND)
 				throw e;
 		}
 	}

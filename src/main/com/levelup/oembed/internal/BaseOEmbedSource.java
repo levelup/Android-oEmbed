@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.levelup.http.HttpClient;
 import com.levelup.http.HttpException;
+import com.levelup.http.ServerException;
 import com.levelup.http.UriParams;
 import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
@@ -21,7 +22,7 @@ abstract class BaseOEmbedSource implements OEmbedSource {
 		this.url = fromUri.toString();
 	}
 	
-	final void assertDataLoaded() throws HttpException {
+	final void assertDataLoaded() throws HttpException, ServerException {
 		OEmbedRequest request = getOembedRequest();
 		oembedData = HttpClient.parseRequest(request);
 	}
@@ -35,7 +36,7 @@ abstract class BaseOEmbedSource implements OEmbedSource {
 	}
 	
 	@Override
-	public String getThumbnail() throws HttpException {
+	public String getThumbnail() throws HttpException, ServerException {
 		assertDataLoaded();
 		
 		if (null!=oembedData) {
