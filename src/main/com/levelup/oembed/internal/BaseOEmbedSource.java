@@ -11,7 +11,7 @@ import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
 import com.levelup.oembed.OEmbedSource;
 
-abstract class BaseOEmbedSource implements OEmbedSource {
+public abstract class BaseOEmbedSource implements OEmbedSource {
 
 	private OEmbed oembedData;
 	private final String endpoint;
