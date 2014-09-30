@@ -1,6 +1,7 @@
 package com.levelup.oembed.internal;
 
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.levelup.http.HttpClient;
@@ -17,7 +18,7 @@ public abstract class BaseOEmbedSource implements OEmbedSource {
 	private final String endpoint;
 	private final String url;
 
-	protected BaseOEmbedSource(String endpoint, Uri fromUri) {
+	protected BaseOEmbedSource(@NonNull String endpoint, @NonNull Uri fromUri) {
 		this.endpoint = endpoint;
 		this.url = fromUri.toString();
 	}

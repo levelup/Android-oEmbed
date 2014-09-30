@@ -3,6 +3,7 @@ package com.levelup.oembed.internal;
 import java.util.List;
 
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import com.levelup.oembed.OEmbedSource;
 
@@ -27,7 +28,7 @@ public class OEmbedYoutube implements OEmbedParser {
 	}
 
 	private static class OEmbedSourceYoutube extends BaseOEmbedSource {
-		OEmbedSourceYoutube(Uri fromUri) {
+		OEmbedSourceYoutube(@NonNull Uri fromUri) {
 			super("http://www.youtube.com/oembed", fromUri);
 		}
 	}

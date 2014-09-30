@@ -1,5 +1,7 @@
 package com.levelup.oembed.internal;
 
+import android.support.annotation.NonNull;
+
 import com.levelup.http.BaseHttpRequest;
 import com.levelup.http.BaseResponseHandler;
 import com.levelup.http.HttpRequest;
@@ -14,11 +16,11 @@ public class OEmbedRequestGet extends BaseHttpRequest<OEmbed,ServerException> im
 	private static final BodyViaGson<OEmbed> OEMBED_TRANSFORM = new BodyViaGson(OEmbed.class);
 	private static final BaseResponseHandler<OEmbed> OEMBED_RESPONSE_PARSER = new BaseResponseHandler<OEmbed>(OEMBED_TRANSFORM);
 
-	public OEmbedRequestGet(String url) {
+	public OEmbedRequestGet(@NonNull String url) {
 		this(url, null);
 	}
 
-	public OEmbedRequestGet(String baseUrl, HttpUriParameters uriParams) {
+	public OEmbedRequestGet(@NonNull String baseUrl, HttpUriParameters uriParams) {
 		super(new ChildBuilder<OEmbed, ServerException, OEmbedRequestGet>() {
 					@Override
 					protected OEmbedRequestGet build(ChildBuilder<OEmbed, ServerException, OEmbedRequestGet> builder) {

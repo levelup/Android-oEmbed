@@ -18,7 +18,7 @@ public abstract class OEmbedParserWithPattern implements OEmbedParser {
 	}
 
 	@Override
-	public OEmbedSource getSource(Uri fromUri) {
+	public OEmbedSource getSource(@NonNull Uri fromUri) {
 		if (pattern.matcher(fromUri.toString()).find()) {
 			return new OEmbedSource(fromUri);
 		}
@@ -26,7 +26,7 @@ public abstract class OEmbedParserWithPattern implements OEmbedParser {
 	}
 
 	private class OEmbedSource extends BaseOEmbedSource {
-		public OEmbedSource(Uri fromUri) {
+		public OEmbedSource(@NonNull Uri fromUri) {
 			super(OEmbedParserWithPattern.this.endpoint, fromUri);
 		}
 	}

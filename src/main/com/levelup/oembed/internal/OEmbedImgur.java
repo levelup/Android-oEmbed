@@ -1,6 +1,7 @@
 package com.levelup.oembed.internal;
 
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import com.levelup.oembed.OEmbedSource;
 
@@ -12,7 +13,7 @@ public class OEmbedImgur implements OEmbedParser {
 	}
 
 	@Override
-	public OEmbedSource getSource(Uri fromUri) {
+	public OEmbedSource getSource(@NonNull Uri fromUri) {
 		if ("i.imgur.com".equalsIgnoreCase(fromUri.getHost())) {
 			return new OEmbedSourceImgur(fromUri);
 		}
@@ -25,7 +26,7 @@ public class OEmbedImgur implements OEmbedParser {
 	}
 
 	private static class OEmbedSourceImgur extends BaseOEmbedSource {
-		OEmbedSourceImgur(Uri fromUri) {
+		OEmbedSourceImgur(@NonNull Uri fromUri) {
 			super("http://api.imgur.com/oembed.json", fromUri);
 		}
 	}
