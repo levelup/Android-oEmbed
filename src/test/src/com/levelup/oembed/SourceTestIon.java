@@ -2,7 +2,7 @@ package com.levelup.oembed;
 
 import android.content.Context;
 
-import com.levelup.http.ion.IonClient;
+import co.tophe.ion.IonClient;
 
 /**
  * Created by Steve Lhomme on 15/07/2014.

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    compile project(':HttpClient')
-    androidTestCompile project(':HttpClient-Ion')
+    compile project(':Tophe')
+    androidTestCompile project(':Tophe-Ion')
 }
 
 android {

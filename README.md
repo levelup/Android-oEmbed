@@ -8,7 +8,7 @@ You provide the URL of a webpage and the library will give you an OEmbed object 
 Dependencies
 --------
 
-* [Android-HttpClient](https://github.com/levelup/Android-HttpClient) and [Android-HttpClient-GSon](https://github.com/levelup/Android-HttpClient/tree/dev/HttpClient-Gson)
+* [Tophe](https://github.com/levelup/Android-HttpClient)
 
 Sample Code
 -----------

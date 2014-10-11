@@ -2,14 +2,15 @@ package com.levelup.oembed.internal;
 
 import android.support.annotation.NonNull;
 
-import com.levelup.http.BaseHttpRequest;
-import com.levelup.http.BaseResponseHandler;
-import com.levelup.http.HttpRequest;
-import com.levelup.http.HttpUriParameters;
-import com.levelup.http.ServerException;
-import com.levelup.http.gson.BodyViaGson;
 import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
+
+import co.tophe.BaseHttpRequest;
+import co.tophe.BaseResponseHandler;
+import co.tophe.HttpRequest;
+import co.tophe.HttpUriParameters;
+import co.tophe.ServerException;
+import co.tophe.gson.BodyViaGson;
 
 public class OEmbedRequestGet extends BaseHttpRequest<OEmbed,ServerException> implements OEmbedRequest {
 

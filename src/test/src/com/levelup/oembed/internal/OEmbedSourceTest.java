@@ -3,12 +3,13 @@ package com.levelup.oembed.internal;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
-import com.levelup.http.HttpDataParserException;
-import com.levelup.http.HttpException;
-import com.levelup.http.HttpIOException;
-import com.levelup.http.HttpMimeException;
-import com.levelup.http.ServerException;
 import com.levelup.oembed.OEmbedSource;
+
+import co.tophe.HttpDataParserException;
+import co.tophe.HttpException;
+import co.tophe.HttpIOException;
+import co.tophe.HttpMimeException;
+import co.tophe.ServerException;
 
 public class OEmbedSourceTest extends AndroidTestCase {
 

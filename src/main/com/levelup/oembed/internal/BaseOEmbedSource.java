@@ -4,13 +4,14 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.levelup.http.HttpClient;
-import com.levelup.http.HttpException;
-import com.levelup.http.ServerException;
-import com.levelup.http.UriParams;
 import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
 import com.levelup.oembed.OEmbedSource;
+
+import co.tophe.HttpClient;
+import co.tophe.HttpException;
+import co.tophe.ServerException;
+import co.tophe.UriParams;
 
 public abstract class BaseOEmbedSource implements OEmbedSource {
 

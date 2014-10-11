@@ -1,7 +1,7 @@
 package com.levelup.oembed;
 
-import com.levelup.http.HttpException;
-import com.levelup.http.ServerException;
+import co.tophe.HttpException;
+import co.tophe.ServerException;
 
 public interface OEmbedSource {
 

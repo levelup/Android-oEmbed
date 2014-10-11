@@ -1,7 +1,8 @@
 package com.levelup.oembed;
 
 import com.google.gson.annotations.SerializedName;
-import com.levelup.http.gson.GsonReflected;
+
+import co.tophe.gson.GsonReflected;
 
 public class OEmbed implements GsonReflected {
 	@SerializedName("type") String type;

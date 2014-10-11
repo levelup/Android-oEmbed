@@ -1,7 +1,7 @@
 package com.levelup.oembed;
 
-import com.levelup.http.ServerException;
-import com.levelup.http.TypedHttpRequest;
+import co.tophe.ServerException;
+import co.tophe.TypedHttpRequest;
 
 
 public interface OEmbedRequest extends TypedHttpRequest<OEmbed,ServerException> {
