@@ -8,7 +8,7 @@ import com.levelup.oembed.OEmbed;
 import com.levelup.oembed.OEmbedRequest;
 import com.levelup.oembed.OEmbedSource;
 
-import co.tophe.HttpClient;
+import co.tophe.TopheClient;
 import co.tophe.HttpException;
 import co.tophe.ServerException;
 import co.tophe.UriParams;
@@ -26,7 +26,7 @@ public abstract class BaseOEmbedSource implements OEmbedSource {
 	
 	final void assertDataLoaded() throws HttpException, ServerException {
 		OEmbedRequest request = getOembedRequest();
-		oembedData = HttpClient.parseRequest(request);
+		oembedData = TopheClient.parseRequest(request);
 	}
 	
 	@Override
