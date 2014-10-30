@@ -15,7 +15,7 @@ public class OEmbedYoutube implements OEmbedParser {
 	}
 	
 	@Override
-	public OEmbedSource getSource(Uri fromUri) {
+	public OEmbedSource getSource(@NonNull Uri fromUri) {
 		if (fromUri.getHost().endsWith("youtube.com")) {
 			List<String> path = fromUri.getPathSegments();
 			if (path.size() > 1 && "embed".equals(path.get(0))) {
