@@ -9,6 +9,7 @@ import com.levelup.oembed.internal.OEmbedInstagram;
 import com.levelup.oembed.internal.OEmbedParser;
 import com.levelup.oembed.internal.OEmbedViddler;
 import com.levelup.oembed.internal.OEmbedVimeo;
+import com.levelup.oembed.internal.OEmbedVine;
 import com.levelup.oembed.internal.OEmbedYoutube;
 
 public final class OEmbedFinder {
@@ -21,6 +22,7 @@ public final class OEmbedFinder {
 		OEmbedVimeo.instance,
 		OEmbedHulu.instance,
 		OEmbedViddler.instance,
+		OEmbedVine.instance,
 	};
 	
 	public static OEmbedSource parse(String sourceUrl) {
