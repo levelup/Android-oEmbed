@@ -14,7 +14,7 @@ android {
         targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
         versionCode 100
         versionName "0.1.0"
-        applicationId 'com.levelup.oembed'
+        //applicationId 'com.levelup.oembed'
     }
 
     sourceSets {
