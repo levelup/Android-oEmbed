@@ -7,8 +7,7 @@
     <uses-sdk android:minSdkVersion="8" />
 
     <instrumentation
-        android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.levelup.oembed" />
+        android:name="android.test.InstrumentationTestRunner" />
 
     <application android:label="Android-oEmbed test">
         <uses-library android:name="android.test.runner" />
