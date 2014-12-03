@@ -1,12 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.levelup.oembed"
-    android:versionCode="1"
-    android:versionName="0.0.1" >
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.levelup.oembed"
+          android:versionCode="1"
+          android:versionName="0.0.1">
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19"
+        tools:overrideLibrary="com.levelup.oembed, co.tophe, co.tophe.ion"/>
 
-    <application />
+    <application/>
 
 </manifest>
