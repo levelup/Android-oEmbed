@@ -14,7 +14,7 @@ import co.tophe.gson.BodyViaGson;
 
 public class OEmbedRequestGet extends BaseHttpRequest<OEmbed,ServerException> implements OEmbedRequest {
 
-	private static final BodyViaGson<OEmbed> OEMBED_TRANSFORM = new BodyViaGson(OEmbed.class);
+	private static final BodyViaGson<OEmbed> OEMBED_TRANSFORM = new BodyViaGson<OEmbed>(OEmbed.class);
 	private static final BaseResponseHandler<OEmbed> OEMBED_RESPONSE_PARSER = new BaseResponseHandler<OEmbed>(OEMBED_TRANSFORM);
 
 	public OEmbedRequestGet(@NonNull String url) {
