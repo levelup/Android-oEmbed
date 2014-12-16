@@ -6,7 +6,6 @@ import android.test.AndroidTestCase;
 import com.levelup.oembed.OEmbedSource;
 
 import co.tophe.HttpDataParserException;
-import co.tophe.HttpException;
 import co.tophe.HttpIOException;
 import co.tophe.HttpMimeException;
 import co.tophe.ServerException;
@@ -45,7 +44,7 @@ public class OEmbedSourceTest extends AndroidTestCase {
 		try {
 			source.getThumbnail();
 		} catch (ServerException e) {
-			if (e.getStatusCode()!=HttpException.HTTP_STATUS_NOT_FOUND)
+			if (e.getStatusCode()!= ServerException.HTTP_STATUS_NOT_FOUND)
 				throw e;
 		}
 	}
