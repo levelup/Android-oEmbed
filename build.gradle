@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 dependencies {
     compile project(':Tophe')
-    androidTestCompile project(':Tophe-Ion')
+    //androidTestCompile project(':Tophe-Ion')
 }
 
 android {
