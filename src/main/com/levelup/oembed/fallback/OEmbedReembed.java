@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.levelup.oembed.internal.BaseOEmbedSource;
 
 /**
- * Created by robUx4 on 30/09/2014.
+ * @author Created by robUx4 on 30/09/2014.
  */
 public class OEmbedReembed extends BaseOEmbedSource {
     public OEmbedReembed(@NonNull Uri fromUri) {
