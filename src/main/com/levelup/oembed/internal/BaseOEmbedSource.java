@@ -24,7 +24,7 @@ public abstract class BaseOEmbedSource implements OEmbedSource {
 		this.url = fromUri.toString();
 	}
 	
-	final void assertDataLoaded() throws HttpException, ServerException {
+	final void assertDataLoaded() throws ServerException, HttpException {
 		OEmbedRequest request = getOembedRequest();
 		oembedData = TopheClient.parseRequest(request);
 	}
@@ -38,7 +38,7 @@ public abstract class BaseOEmbedSource implements OEmbedSource {
 	}
 	
 	@Override
-	public String getThumbnail() throws HttpException, ServerException {
+	public String getThumbnail() throws ServerException, HttpException {
 		assertDataLoaded();
 		
 		if (null!=oembedData) {
