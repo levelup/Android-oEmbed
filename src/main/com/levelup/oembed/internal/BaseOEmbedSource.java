@@ -42,7 +42,7 @@ public abstract class BaseOEmbedSource implements OEmbedSource {
 		assertDataLoaded();
 		
 		if (null!=oembedData) {
-			String thumbnail = oembedData.getThumbnail();
+			String thumbnail = oembedData.isLink() ? null : oembedData.getThumbnail();
 			if (TextUtils.isEmpty(thumbnail))
 				thumbnail = oembedData.getPhotoUrl();
 			return thumbnail;

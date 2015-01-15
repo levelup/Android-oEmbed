@@ -24,7 +24,19 @@ public class OEmbed implements GsonReflected {
 	public boolean isPhoto() {
 		return "photo".equals(type);
 	}
-	
+
+	public boolean isLink() {
+		return "link".equals(type);
+	}
+
+	public boolean isVideo() {
+		return "video".equals(type);
+	}
+
+	public boolean isRich() {
+		return "rich".equals(type);
+	}
+
 	public String getThumbnail() {
 		return thumbnailUrl;
 	}
