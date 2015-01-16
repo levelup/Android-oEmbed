@@ -1,14 +1,15 @@
-package com.levelup.oembed.internal;
+package co.tophe.oembed.internal;
 
 import java.util.List;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.levelup.oembed.OEmbed;
-import com.levelup.oembed.OEmbedRequest;
-import com.levelup.oembed.OEmbedSource;
+import co.tophe.oembed.OEmbed;
+import co.tophe.oembed.OEmbedRequest;
+import co.tophe.oembed.OEmbedSource;
 
 import co.tophe.HttpException;
 import co.tophe.ServerException;
@@ -44,10 +45,11 @@ public class OEmbedVine implements OEmbedParser {
 		}
 
 		final void assertDataLoaded() throws ServerException, HttpException {
-			OEmbedRequest request = getOembedRequest();
+			OEmbedRequest request = createOembedRequest();
 			oembedData = TopheClient.parseRequest(request);
 		}
 
+		@Nullable
 		@Override
 		public String getThumbnail() throws ServerException, HttpException {
 			assertDataLoaded();
@@ -61,8 +63,9 @@ public class OEmbedVine implements OEmbedParser {
 			return null;
 		}
 
+		@NonNull
 		@Override
-		public OEmbedRequest getOembedRequest() {
+		public OEmbedRequest createOembedRequest() {
 			return new OEmbedRequestGet("https://vine.co/oembed/"+vineId+".json", null);
 		}
 	}

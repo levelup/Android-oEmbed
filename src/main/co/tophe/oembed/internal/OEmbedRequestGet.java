@@ -1,9 +1,9 @@
-package com.levelup.oembed.internal;
+package co.tophe.oembed.internal;
 
 import android.support.annotation.NonNull;
 
-import com.levelup.oembed.OEmbed;
-import com.levelup.oembed.OEmbedRequest;
+import co.tophe.oembed.OEmbed;
+import co.tophe.oembed.OEmbedRequest;
 
 import co.tophe.BaseHttpRequest;
 import co.tophe.BaseResponseHandler;

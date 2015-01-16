@@ -1,9 +1,9 @@
-package com.levelup.oembed.internal;
+package co.tophe.oembed.internal;
 
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
-import com.levelup.oembed.OEmbedSource;
+import co.tophe.oembed.OEmbedSource;
 
 import co.tophe.HttpDataParserException;
 import co.tophe.HttpIOException;

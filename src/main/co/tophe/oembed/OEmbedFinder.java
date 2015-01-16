@@ -1,18 +1,18 @@
-package com.levelup.oembed;
+package co.tophe.oembed;
 
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.levelup.oembed.internal.OEmbedFunnyOrDie;
-import com.levelup.oembed.internal.OEmbedHulu;
-import com.levelup.oembed.internal.OEmbedImgur;
-import com.levelup.oembed.internal.OEmbedInstagram;
-import com.levelup.oembed.internal.OEmbedParser;
-import com.levelup.oembed.internal.OEmbedViddler;
-import com.levelup.oembed.internal.OEmbedVimeo;
-import com.levelup.oembed.internal.OEmbedVine;
-import com.levelup.oembed.internal.OEmbedYoutube;
+import co.tophe.oembed.internal.OEmbedFunnyOrDie;
+import co.tophe.oembed.internal.OEmbedHulu;
+import co.tophe.oembed.internal.OEmbedImgur;
+import co.tophe.oembed.internal.OEmbedInstagram;
+import co.tophe.oembed.internal.OEmbedParser;
+import co.tophe.oembed.internal.OEmbedViddler;
+import co.tophe.oembed.internal.OEmbedVimeo;
+import co.tophe.oembed.internal.OEmbedVine;
+import co.tophe.oembed.internal.OEmbedYoutube;
 
 public final class OEmbedFinder {
 
@@ -30,8 +30,8 @@ public final class OEmbedFinder {
 	/**
 	 * Find an OEmbed source for the specified URL.
 	 * <p>After that you can call {@link OEmbedSource#getThumbnail()} to get a picture representation of the URL.</p>
-	 * <p>When a source is not found you may still use fallback sources like {@link com.levelup.oembed.fallback.OEmbedEmbedly OEmbedEmbedly},
-	 * {@link com.levelup.oembed.fallback.OEmbedOohembed OEmbedOohembed} or {@link com.levelup.oembed.fallback.OEmbedReembed OEmbedReembed}</p>
+	 * <p>When a source is not found you may still use fallback sources like {@link co.tophe.oembed.fallback.OEmbedEmbedly OEmbedEmbedly},
+	 * {@link co.tophe.oembed.fallback.OEmbedOohembed OEmbedOohembed} or {@link co.tophe.oembed.fallback.OEmbedReembed OEmbedReembed}</p>
 	 *
 	 * @return {@code null} if no source if found for this URL.
 	 */

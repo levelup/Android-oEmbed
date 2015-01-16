@@ -1,11 +1,11 @@
-package com.levelup.oembed.internal;
+package co.tophe.oembed.internal;
 
 import java.util.List;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import com.levelup.oembed.OEmbedSource;
+import co.tophe.oembed.OEmbedSource;
 
 public class OEmbedYoutube implements OEmbedParser {
 

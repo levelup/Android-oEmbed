@@ -1,4 +1,4 @@
-package com.levelup.oembed;
+package co.tophe.oembed;
 
 import android.test.AndroidTestCase;
 

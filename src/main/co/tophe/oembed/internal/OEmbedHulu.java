@@ -1,4 +1,4 @@
-package com.levelup.oembed.internal;
+package co.tophe.oembed.internal;
 
 public class OEmbedHulu extends OEmbedParserWithPattern {
 

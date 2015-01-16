@@ -1,9 +1,12 @@
-package com.levelup.oembed;
+package co.tophe.oembed;
 
 import com.google.gson.annotations.SerializedName;
 
 import co.tophe.gson.GsonReflected;
 
+/**
+ * OEmbed object with the data parsed from the server response.
+ */
 public class OEmbed implements GsonReflected {
 	@SerializedName("type") String type;
 	@SerializedName("title") String title;

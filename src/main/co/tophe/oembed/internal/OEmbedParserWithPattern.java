@@ -1,4 +1,4 @@
-package com.levelup.oembed.internal;
+package co.tophe.oembed.internal;
 
 import java.util.regex.Pattern;
 

@@ -1,9 +1,9 @@
-package com.levelup.oembed.fallback;
+package co.tophe.oembed.fallback;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import com.levelup.oembed.internal.BaseOEmbedSource;
+import co.tophe.oembed.internal.BaseOEmbedSource;
 
 /**
  * @author Created by robUx4 on 30/09/2014.
