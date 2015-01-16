@@ -14,17 +14,22 @@ import co.tophe.oembed.internal.OEmbedVimeo;
 import co.tophe.oembed.internal.OEmbedVine;
 import co.tophe.oembed.internal.OEmbedYoutube;
 
+/**
+ * Helper class to find a suitable {@link co.tophe.oembed.OEmbedSource} for a specified URL.
+ *
+ * @see #lookup(String)
+ */
 public final class OEmbedFinder {
 
-	private static final OEmbedParser parsers[] = new OEmbedParser[] {
-		OEmbedYoutube.instance,
-		OEmbedInstagram.instance,
-		OEmbedImgur.instance,
-		OEmbedFunnyOrDie.instance,
-		OEmbedVimeo.instance,
-		OEmbedHulu.instance,
-		OEmbedViddler.instance,
-		OEmbedVine.instance,
+	private static final OEmbedParser parsers[] = new OEmbedParser[]{
+			OEmbedYoutube.instance,
+			OEmbedInstagram.instance,
+			OEmbedImgur.instance,
+			OEmbedFunnyOrDie.instance,
+			OEmbedVimeo.instance,
+			OEmbedHulu.instance,
+			OEmbedViddler.instance,
+			OEmbedVine.instance,
 	};
 
 	/**
@@ -36,7 +41,7 @@ public final class OEmbedFinder {
 	 * @return {@code null} if no source if found for this URL.
 	 */
 	@Nullable
-	public static OEmbedSource parse(String sourceUrl) {
+	public static OEmbedSource lookup(String sourceUrl) {
 		if (!TextUtils.isEmpty(sourceUrl)) {
 			Uri sourceUri = Uri.parse(sourceUrl);
 

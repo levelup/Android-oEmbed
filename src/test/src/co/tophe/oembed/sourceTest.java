@@ -18,14 +18,14 @@ public class sourceTest extends AndroidTestCase {
 	private static final String FAIL_IMGUR1 = "http://imgur.com/a/N5vY5";
 
 	private void testOEmbedThumbnail(String url) throws Exception {
-		OEmbedSource dataSource = OEmbedFinder.parse(url);
+		OEmbedSource dataSource = OEmbedFinder.lookup(url);
 		assertNotNull(dataSource);
 		String thumbnail = dataSource.getThumbnail();
 		assertNotNull(thumbnail);
 	}
 	
 	private void testOEmbedNoThumbnail(String url) throws Exception {
-		OEmbedSource dataSource = OEmbedFinder.parse(url);
+		OEmbedSource dataSource = OEmbedFinder.lookup(url);
 		assertNull(dataSource);
 	}
 	
