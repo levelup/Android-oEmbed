@@ -1,3 +1,22 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
 apply plugin: 'com.android.library'
 
 dependencies {
@@ -50,4 +69,28 @@ android {
             java.srcDirs = ['src/test/src']
         }
     }
+
+    libraryVariants.all { variant ->
+        def name = variant.buildType.name
+        if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
+            return; // Skip debug builds.
+        }
+        def task = project.tasks.create "jar${name.capitalize()}", Jar
+        task.dependsOn variant.javaCompile
+        task.from variant.javaCompile.destinationDir
+        artifacts.add('archives', task);
+
+        configurations.archives.artifacts.with { archives ->
+            def aarArtifact
+            archives.each {
+                if (it.file =~ 'aar') {
+                    aarArtifact = it
+                }
+            }
+            //println "AAR to delete: ${aarArtifact}"
+            remove(aarArtifact)
+        }
+    }
 }
+
+apply from: 'https://raw.githubusercontent.com/mcxiaoke/gradle-mvn-push/master/gradle-mvn-push.gradle'
