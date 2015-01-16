@@ -1,6 +1,8 @@
 package com.levelup.oembed;
 
 import android.net.Uri;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.levelup.oembed.internal.OEmbedFunnyOrDie;
 import com.levelup.oembed.internal.OEmbedHulu;
@@ -24,14 +26,25 @@ public final class OEmbedFinder {
 		OEmbedViddler.instance,
 		OEmbedVine.instance,
 	};
-	
-	public static OEmbedSource parse(String sourceUrl) {
-		Uri sourceUri = Uri.parse(sourceUrl);
 
-		for (OEmbedParser parser : parsers) {
-			OEmbedSource src = parser.getSource(sourceUri);
-			if (null!=src)
-				return src;
+	/**
+	 * Find an OEmbed source for the specified URL.
+	 * <p>After that you can call {@link OEmbedSource#getThumbnail()} to get a picture representation of the URL.</p>
+	 * <p>When a source is not found you may still use fallback sources like {@link com.levelup.oembed.fallback.OEmbedEmbedly OEmbedEmbedly},
+	 * {@link com.levelup.oembed.fallback.OEmbedOohembed OEmbedOohembed} or {@link com.levelup.oembed.fallback.OEmbedReembed OEmbedReembed}</p>
+	 *
+	 * @return {@code null} if no source if found for this URL.
+	 */
+	@Nullable
+	public static OEmbedSource parse(String sourceUrl) {
+		if (!TextUtils.isEmpty(sourceUrl)) {
+			Uri sourceUri = Uri.parse(sourceUrl);
+
+			for (OEmbedParser parser : parsers) {
+				OEmbedSource src = parser.getSource(sourceUri);
+				if (null != src)
+					return src;
+			}
 		}
 		return null;
 	}
