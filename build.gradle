@@ -1,8 +1,25 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    compile project(':Tophe')
-    //androidTestCompile project(':Tophe-Ion')
+    def artifactTophe = 'co.tophe:tophe:1.0.0+'
+
+    def useLocalTophe = false
+
+    def localTophe = ':Tophe'
+
+    allprojects {
+        rootProject.allprojects.project.each {
+            if (it.path == localTophe) {
+                useLocalTophe = true
+            }
+        }
+    }
+    if (useLocalTophe) {
+        println 'Using local Tophe library in ' + project.path
+        compile project(localTophe)
+    } else {
+        compile artifactTophe
+    }
 }
 
 android {
