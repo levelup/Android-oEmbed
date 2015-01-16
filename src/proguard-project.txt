@@ -19,4 +19,4 @@
 #   public *;
 #}
 
--keepnames class com.levelup.oembed.** { *; }
+-keepnames class co.tophe.oembed.** { *; }
