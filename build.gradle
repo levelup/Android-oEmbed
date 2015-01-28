@@ -20,7 +20,7 @@ allprojects {
 apply plugin: 'com.android.library'
 
 dependencies {
-    def artifactTophe = 'co.tophe:tophe:1.0.0-rc1'
+    def artifactTophe = 'co.tophe:tophe:1.0.0'
 
     def useLocalTophe = false
 

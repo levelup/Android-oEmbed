@@ -18,6 +18,21 @@ OEmbedSource dataSource = OEmbedFinder.parse("http://www.youtube.com/watch?v=ODr
 String thumbnail = dataSource.getThumbnail();
 ```
 
+### Download
+
+Download [the latest JAR][1] or grab via Maven:
+```xml
+<dependency>
+  <groupId>co.tophe</groupId>
+  <artifactId>android-oembed</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+or Gradle:
+```groovy
+compile 'co.tophe:tophe:android-oembed:1.0.0'
+```
+
 License
 -------
 
@@ -32,3 +47,5 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+[1]: https://search.maven.org/remote_content?g=co.tophe&a=android-oembed&v=LATEST
