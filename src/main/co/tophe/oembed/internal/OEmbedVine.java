@@ -17,7 +17,7 @@ import co.tophe.TopheClient;
 
 public class OEmbedVine implements OEmbedParser {
 
-	public static final OEmbedVine instance = new OEmbedVine();
+	public static final OEmbedVine INSTANCE = new OEmbedVine();
 
 	private OEmbedVine() {
 	}

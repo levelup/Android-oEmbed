@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import co.tophe.oembed.internal.OEmbedDailymotion;
 import co.tophe.oembed.internal.OEmbedFunnyOrDie;
 import co.tophe.oembed.internal.OEmbedHulu;
 import co.tophe.oembed.internal.OEmbedImgur;
@@ -22,14 +23,15 @@ import co.tophe.oembed.internal.OEmbedYoutube;
 public final class OEmbedFinder {
 
 	private static final OEmbedParser parsers[] = new OEmbedParser[]{
-			OEmbedYoutube.instance,
-			OEmbedInstagram.instance,
-			OEmbedImgur.instance,
-			OEmbedFunnyOrDie.instance,
-			OEmbedVimeo.instance,
-			OEmbedHulu.instance,
-			OEmbedViddler.instance,
-			OEmbedVine.instance,
+			OEmbedYoutube.INSTANCE,
+			OEmbedInstagram.INSTANCE,
+			OEmbedImgur.INSTANCE,
+			OEmbedVimeo.INSTANCE,
+			OEmbedHulu.INSTANCE,
+			OEmbedDailymotion.INSTANCE,
+			OEmbedFunnyOrDie.INSTANCE,
+			OEmbedVine.INSTANCE,
+			OEmbedViddler.INSTANCE,
 	};
 
 	/**

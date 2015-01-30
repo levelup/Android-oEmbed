@@ -9,7 +9,7 @@ import co.tophe.oembed.OEmbedSource;
 
 public class OEmbedYoutube implements OEmbedParser {
 
-	public static final OEmbedYoutube instance = new OEmbedYoutube();
+	public static final OEmbedYoutube INSTANCE = new OEmbedYoutube();
 	
 	private OEmbedYoutube() {
 	}

@@ -7,7 +7,7 @@ import co.tophe.oembed.OEmbedSource;
 
 public class OEmbedImgur implements OEmbedParser {
 
-	public static final OEmbedImgur instance = new OEmbedImgur();
+	public static final OEmbedImgur INSTANCE = new OEmbedImgur();
 
 	private OEmbedImgur() {
 	}
