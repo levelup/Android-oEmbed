@@ -6,6 +6,7 @@ public class sourceTest extends AndroidTestCase {
 
 	private static final String YOUTUBE1 = "http://www.youtube.com/watch?v=SqfJPKgkdgg";
 	private static final String YOUTUBE2 = "http://www.youtube.com/embed/SqfJPKgkdgg?rel=0&amp;autoplay=0&amp;wmode=opaque&amp;controls=2&amp;autohide=1&amp;showinfo=0";
+	private static final String YOUTUBE_SHORT = "http://youtu.be/bFra7SIMYt4?a";
 	private static final String VIMEO1 = "http://vimeo.com/7100569";
 	private static final String INSTAGRAM = "http://instagram.com/p/xpaLXzIwd1/";
 	private static final String INSTAGRAM_FULL = "http://instagram.com/p/xpaLXzIwd1/?modal=true";
@@ -47,7 +48,11 @@ public class sourceTest extends AndroidTestCase {
 	public void testYoutube2() throws Exception {
 		testOEmbedThumbnail(YOUTUBE2);
 	}
-	
+
+	public void testYoutubeShort() throws Exception {
+		testOEmbedThumbnail(YOUTUBE_SHORT);
+	}
+
 	public void testVimeo1() throws Exception {
 		testOEmbedThumbnail(VIMEO1);
 	}
