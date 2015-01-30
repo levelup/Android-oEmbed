@@ -25,12 +25,12 @@ Download [the latest JAR][1] or grab via Maven:
 <dependency>
   <groupId>co.tophe</groupId>
   <artifactId>android-oembed</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'co.tophe:tophe:android-oembed:1.0.0'
+compile 'co.tophe:tophe:android-oembed:1.0.1'
 ```
 
 License
