@@ -1,26 +1,34 @@
-Android-oEmbed
-==================
+#Android-oEmbed
 
 A simple oEmbed parsing library for Android.
 
 You provide the URL of a webpage and the library will give you an OEmbed object if it finds one.
 
-Dependencies
---------
+## Dependencies
 
 * [Tophe](https://github.com/levelup/Android-HttpClient)
 
-Sample Code
------------
+##Sample Code
+
+###Get a picture thumbnail for a URL
 
 ```java
-OEmbedSource dataSource = OEmbedFinder.parse("http://www.youtube.com/watch?v=ODrLMCXKTS8");
-String thumbnail = dataSource.getThumbnail();
+OEmbedSource dataSource = OEmbedFinder.lookup("http://www.youtube.com/watch?v=ODrLMCXKTS8");
+if (dataSource != null) {
+    String thumbnail = dataSource.getThumbnail();
+}
 ```
 
-### Download
+###Embedly fallback
 
-Download [the latest JAR][1] or grab via Maven:
+```java
+OEmbedEmbedly fallback = new OEmbedEmbedly(url);
+String thumbnail = fallback.getThumbnail();
+```
+
+## Download
+
+Download [the latest JAR][1] or grab via Maven [![Maven Central](https://maven-badges.herokuapp.com/maven-central/co.tophe/android-oembed/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/co.tophe/android-oembed)
 ```xml
 <dependency>
   <groupId>co.tophe</groupId>
@@ -33,8 +41,7 @@ or Gradle:
 compile 'co.tophe:tophe:android-oembed:1.0.1'
 ```
 
-License
--------
+## License
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
