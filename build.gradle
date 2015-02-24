@@ -39,7 +39,7 @@ dependencies {
     } else {
         compile artifactTophe
     }
-    androidTestCompile 'co.tophe:tophe-ion:1.0.0'
+    androidTestCompile 'co.tophe:tophe-ion:1.0.1'
 }
 
 android {
